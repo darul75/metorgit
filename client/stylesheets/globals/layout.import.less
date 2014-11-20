@@ -4,21 +4,11 @@
 // Remove when deploying your app
 @media screen and (min-width: 376px) {
   body {
-    overflow: hidden;
-
-    &:after {
-      .position(absolute, 50%, 50%, auto, auto, 432px, 882px);
-      .transform(translate3d(50%, -50%, 0));
-      background-image: url('img/app/chrome-iphone6-432x882@2x.jpg');
-      content: '';
-      display: block;
-      background-size: contain;
-      z-index: -1;
-    }
+    overflow: hidden;    
 
     #container {
-      .position(absolute, 50%, 0, 0, 0, auto, 100%);
-      .transform(translate3d(0, -50%, 0));
+      .position(absolute, 40%, 0, 0, 0, auto, 100%);
+      // .transform(translate3d(0, -50%, 0));
       max-width: 375px;
       max-height: 667px;
       margin: 0 auto;
@@ -62,6 +52,7 @@ body {
 .content-scrollable {
   .position(absolute, 0, 0, 0, 0);
   background: @color-empty;
+  text-align: center;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
