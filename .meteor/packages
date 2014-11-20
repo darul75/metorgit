@@ -5,6 +5,8 @@
 
 meteor-platform
 accounts-ui
-accounts-password
 bruz:github-api
+accounts-github
+iron:router
+less
 
