@@ -25,7 +25,7 @@ Handlebars.registerHelper('images', function(infos){
   if (infos && infos.references) {
     for (var i=0;i<infos.references.length;i++) {
       if (infos.references[i].image) {
-        s+= '<img src="'+infos.references[i].href+'" width="25" height="15"/>'
+        s+= '<img src="'+infos.references[i].href+'" width="50" />'
       }
     }
   } 
