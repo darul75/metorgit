@@ -1,11 +1,33 @@
 <template name="home">
-  <div class="page home">    
+	<div class="home">
+		<header>
+			<form>
+				<div class="page-title">Explore Some Githubers</div>
+			</form>
+		</header>
+		<div class="page home">
+			<div class="section-heading">
+				<h2 class="section-title center">Or yourself</h2>        
+			</div>
+			<div class="content-scrollable">		      			
+				{{#if currentUser}}				
+				<div><a href='/githuber'><img src="icons/GitHub-Mark-Light-120px-plus.png"/></a></div>
+				{{else}}
+				<div><img src="icons/GitHub-Mark-Light-120px-plus.png"/></div>  			
+				{{/if}}
+				{{> loginButtons}}				
+			</div>		
+			<div class="list">
+				{{#each users}}
+				{{> user}}
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</template>
 
-    <div class="content-scrollable">
-            
-      {{> loginButtons}}
-            
-    </div>
-
-  </div>
+<template name="user">
+	<a href='/{{git.login}}'>
+		<img src="{{git.avatar_url}}" width="46" height="46" />
+	</a>		
 </template>

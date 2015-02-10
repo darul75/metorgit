@@ -17,27 +17,15 @@ Template.githuber.helpers({
   	}); 
 
   	return Session.get("repos");  	
-  }
-});
-
-Handlebars.registerHelper('images', function(infos){
-  var s = '';
-  if (infos && infos.references) {
-    for (var i=0;i<infos.references.length;i++) {
-      if (infos.references[i].image) {
-        s+= '<img src="'+infos.references[i].href+'" width="25" height="15"/>'
-      }
-    }
-  } 
-  return s;
+  }  
 });
 
 // EVENTS
-Template.githuber.events({    
+Template.githuber.events({  
   "click #synchronize": function (event) {
   	Meteor.call("synchronize");    
     return false;
-  },  
+  },
   "click #profile": function(event) {   
     Router.go('/profile');  
   },
@@ -51,7 +39,6 @@ Template.githuber.events({
   }
 });
 
-// client
 Meteor.subscribe("userData");
 
 

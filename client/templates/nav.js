@@ -8,6 +8,17 @@ Template.nav.rendered = function() {
   // });
 }
 
+Template.nav.events({
+  "click .js-menu": function (event) {
+    var $nav = $('.appLayout');
+
+    $nav.toggleClass("menu-open");
+
+    return true;
+  }
+
+})
+
 Template.nav.helpers({
   // Iron Router stores {initial: true} in history state if this is
   // the first route that we hit in an app. There are a variety of 

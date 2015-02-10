@@ -1,19 +1,70 @@
 <template name="githuber">
-  <div class="page githuber">
-    {{> nav title='Your Github' subtext=recipeCount}}
-
-    <div class="content-scrollable">
-      <div class="list-recipes">
-        {{#each this}}
-          {{> recipeItem recipe=this size='large'}}
-        {{else}}
-          <div class="wrapper-message">
-            <div class="title-message">No bookmarks yet</div>
-            <div class="subtitle-message">Tap <span class="icon-bookmark-hollow"></span> to bookmark your favorite recipes. <a href="{{pathFor 'home'}}">Return home</a></div>
-
-          </div>
-        {{/each}}
+  <div class="github">
+    <header>
+      <div class="center-wrapper">
+        <div class="left">
+          <div class="page-title"><a href='https://github.com/{{repos.[1].owner.login}}'>{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</a></div>
+          <a href="{{currentUser.git.blog}}" target="_blank">{{currentUser.git.blog}}</a>
+          <p class="presentation">{{currentUser.profile.summary}}</p>
+          <p>
+            {{#if currentUser.git.location}}
+            <i class="fa fa-globe"></i> {{currentUser.git.location}}
+            {{/if}}
+            {{#if currentUser.git.company}}
+            <i class="fa fa-globe"></i> {{currentUser.git.company}}
+            {{/if}}
+          </p>
+          {{> languages}}          
+        </div>
+        <div class="right">
+          <img src="{{currentUser.git.avatar_url}}" class="avatar">
+        </div>  
       </div>
-    </div>
+    </header>
+    <section id='repositories'>
+      <div class="section-heading center">        
+        {{#if currentUser}}                     
+          {{> buttons}}
+        {{/if}}
+      </div>
+      <div class="page githuber">    
+        <div class="content-scrollable">
+          <ol class="grid">
+            {{#each repos}}
+              {{> repo}}
+            {{/each}}
+          </ol>          
+        </div>
+      </div>
+    </section>
+  </div>  
+</template>
+
+<template name="repo">
+  <li class="module packagesItem"> 
+    <span class="metadata">   
+      <span class="title"><a href='/{{full_name}}'>{{full_name}}</a></span>
+      <div class="metrics">
+        <div class="metric"><i class="fa fa-star"></i> {{watchers_count}}</div>
+        <div class="metric"><i class="fa fa-code-fork"></i> {{forks}}</div>
+        <div class="metric"><i class="fa fa-code-fork"></i> {{forks_count}}</div>
+        <div class="metric"><i class="fa fa-bug"></i> {{open_issues_count}}</div>        
+      </div>
+      <p class="description">{{description}}</p>
+      <p class="description">{{{images infos}}}</p>
+    </span>  
+  </li>
+</template>
+
+<template name="buttons">
+  <button class="btn-small" id="synchronize"><i class="fa fa-github-square"></i>Synchro Git</button>
+  <button class="btn-small" id="profile"><i class="fa fa-github-square"></i>Edit profile</button>
+</template>
+
+<template name="languages">
+  <div class="languages">
+    {{#each currentUser.git.languages.git}}
+      <a class="btn-language">{{this}}</a>
+    {{/each}}
   </div>
 </template>

@@ -1,0 +1,43 @@
+<template name="profile">
+  <div class="github">
+    <header>
+      <div class="center-wrapper">
+        <div class="left">
+          <h1>{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</h1>
+          <div class="page-title"><a href='https://github.com/{{repos.[1].owner.login}}'>{{repos.[1].owner.login}}</a></div>
+          <a href="{{currentUser.git.blog}}" target="_blank">{{currentUser.git.blog}}</a>
+          <p class="presentation">{{currentUser.profile.summary}}</p>
+          {{> languages}}
+        </div>
+        <div class="right">
+          <img src="{{currentUser.git.avatar_url}}" class="avatar">
+        </div>  
+      </div>
+    </header>
+    <section id='repositories'>
+      <div class="section-heading center"> 
+      	<h2>Information</h2>               
+      </div>
+      <div class="page githuber">    
+        <form id="formProfile">
+        	<div>
+			    	<input type="text" name="firstname" placeholder="Firstname" value="{{currentUser.profile.firstname}}" />
+			    </div>	
+			    <div>
+			    	<input type="text" name="lastname" placeholder="Lastname" value="{{currentUser.profile.lastname}}"/>
+			  	</div>
+			  	<div>
+			    	<textarea form="formProfile" cols="150" rows="8" name="summary" placeholder="Description about you, your will" autofocus="true" required="true" value="{{currentUser.profile.summary}}"></textarea>
+			    </div>	
+			    {{#if currentUser}}                     
+          	{{> buttonsProfile}}
+        	{{/if}}
+			  </form>
+      </div>
+    </section>
+  </div>
+</template>  
+
+<template name="buttonsProfile">
+  <button type="submit" class="btn-small" id="update" ><i class="fa fa-github-square"></i>Update</button>
+</template>	

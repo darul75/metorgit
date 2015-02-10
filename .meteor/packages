@@ -7,6 +7,14 @@ meteor-platform
 accounts-ui
 bruz:github-api
 accounts-github
-iron:router
 less
+github
+meteorhacks:npm
+
+
+npm-container
+vsivsi:queue-async
+iron:router
+simple:markdown-templating
+markdown
 

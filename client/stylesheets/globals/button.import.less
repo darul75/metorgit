@@ -1,5 +1,11 @@
 [class^="btn-"],
 [class*=" btn-"] {
+
+  margin: 10px 0;
+
+  background-color: rgb(202, 168, 104);
+  border-radius: 3px;
+
   // Sizing
   .font-s2;
   line-height: 22px !important; //override line-height always so we can use em's to size.
@@ -16,6 +22,12 @@
   text-decoration: none !important; //prevents global link styles from applying
   vertical-align: middle;
   white-space: nowrap;
+
+  &[class*="language"] {    
+    background-color:#9D9C9B;
+    font-size: 10px;
+    padding: .1em .1em .1em;
+  }  
 
   &[class*="small"] {
     padding: .7em 1.25em .50em; // 36px tall

@@ -1,0 +1,57 @@
+<template name="githuberuser">
+  <div class="github">
+    <header>
+      <div class="center-wrapper">
+        <div class="left">
+          <div class="page-title"><a href='https://github.com/{{repos.[1].owner.login}}'>{{repos.[1].owner.login}}</a></div>
+          <a href="{{currentUser.git.blog}}" target="_blank">{{profile.git.blog}}</a>
+          <p class="presentation">{{profile.git.blog}}</p>
+          <!-- {{> languages}} -->
+        </div>
+        <div class="right">
+          <img src="{{currentUser.git.avatar_url}}" class="avatar">
+        </div>  
+      </div>
+    </header>
+    <section id='repositories'>
+      <div class="section-heading center">                
+      </div>
+      <div class="page githuber">    
+        <div class="content-scrollable">
+          <ol class="grid fixed-height">
+           <!--  {{#each repos}}
+              {{> repo}}
+            {{/each}} -->
+          </ol>
+        </div>
+      </div>
+    </section>
+  </div>  
+</template>
+
+<!-- <template name="repo">
+  <li class="module packagesItem"> 
+    <span class="metadata">   
+      <span class="title"><a href='/{{full_name}}'>{{full_name}}</a></span>
+      <p class="description">{{description}}</p>
+      
+      <div class="metrics">
+        <div class="metric"><i class="fa fa-star"></i> {{watchers_count}}</div>
+        <div class="metric"><i class="fa fa-code-fork"></i> 42</div>        
+      </div>
+    </span>  
+  </li>
+</template> -->
+
+<!-- <template name="buttons">
+  <button class="btn-small" id="synchronize"><i class="fa fa-github-square"></i>Synchro Git</button>
+  <button class="btn-small" id="profile"><i class="fa fa-github-square"></i>Edit profile</button>
+</template>
+
+<template name="languages">
+  <div class="languages">
+    {{#each profile.git.languages.git}}
+      <a class="btn-language">{{this}}</a>
+    {{/each}}
+  </div>
+</template> -->

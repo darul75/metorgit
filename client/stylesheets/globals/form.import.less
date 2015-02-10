@@ -1,73 +1,84 @@
-// standard text input
-input[type="text"],
-textarea {
-  .font-s3;
-  .type-regular;
-
-  // Sizing
-  padding: 1rem 1.25rem; //total height ~48
-  line-height: 1.5em !important;
-
-  // Style
-  .placeholder(@color-medium);
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-sizing: border-box;
-  color: @color-full;
-  outline: none;
-
-  &:active,
-  &:focus {
-
-  }
-
-  &[disabled] { opacity: .5; }
+input:not([type="checkbox"]):not([type="radio"]),.pseudo-input {
+    padding: .375em .75em;
+    line-height: 1.5em !important
 }
 
-// Custom checkbox
-.checkbox {
-  .font-s3;
-  .type-bold;
-  color: @color-medium;
-  clear: both;
-  display: block;
-  line-height: 1rem !important;
-
-  cursor: pointer;
-  min-height: 1em;
-  position: relative; //necessary for special styling
-
-  input[type="checkbox"] {
-    font-size: 1em;
-    visibility: hidden;
-
-    & + span:before {
-      .position(relative, auto, auto, auto, -1em, .85em, .85em);
-      content: '';
-      box-shadow: @color-medium 0 0 0 1px inset;
-      display: inline-block;
+@media screen and (min-width: 40em) {
+    input:not([type="checkbox"]):not([type="radio"]),.pseudo-input {
+        padding:.375em 1em
     }
+}
 
-    &:checked + span:before {
-      box-shadow: none;
-      color: @color-primary;
+input {
+  padding: 2px;
+}
 
-      // Icon family from icon.lessimport
-      font-family: 'market';
-    	speak: none;
-    	font-style: normal;
-    	font-weight: normal;
-    	font-variant: normal;
-    	text-transform: none;
-    	line-height: 1;
+input:not([type="checkbox"]):not([type="radio"]),textarea {
+  background-color: transparent;
+  border: 1px solid #4D4545;
+  border-radius: 3px;
+  color: #FFF;    
+  font-size: 14px;
+  line-height: 20px;  
+  margin: 2px;
+  padding: .375em .75em;
+  -webkit-transition: border 300ms ease-in, -webkit-box-shadow 300ms ease-in;
+  -moz-transition: border 300ms ease-in, -moz-box-shadow 300ms ease-in;
+  -o-transition: border 300ms ease-in, box-shadow 300ms ease-in;
+  transition: border 300ms ease-in, box-shadow 300ms ease-in;
+}
 
-    	// Better Font Rendering
-    	-webkit-font-smoothing: antialiased;
-    	-moz-osx-font-smoothing: grayscale;
-
-    	// Checkmark icon
-      content: "\e609";
+@media screen and (min-width: 60em) {
+    input:not([type="checkbox"]):not([type="radio"]),textarea,.pseudo-input {
+        font-size:16px;
+        line-height: 22px
     }
-  }
+}
+
+input:not([type="checkbox"]):not([type="radio"])::-webkit-input-placeholder,textarea::-webkit-input-placeholder {
+    color: #cccccc
+}
+
+input:not([type="checkbox"]):not([type="radio"]):-moz-placeholder,textarea:-moz-placeholder {
+    color: #cccccc
+}
+
+input:not([type="checkbox"]):not([type="radio"])::-moz-placeholder,textarea::-moz-placeholder {
+    color: #cccccc
+}
+
+input:not([type="checkbox"]):not([type="radio"]):-ms-input-placeholder,textarea:-ms-input-placeholder {
+    color: #cccccc
+}
+
+input:not([type="checkbox"]):not([type="radio"]):active,textarea:active,input:not([type="checkbox"]):not([type="radio"]):focus,textarea:focus {
+    border-color: #ffffff;
+    box-shadow: #6064ad 0 0px 3px 0
+}
+
+input:not([type="checkbox"]):not([type="radio"]).alert,textarea.alert {
+    border: 1px solid #ff4800;
+    box-shadow: #ff4800 0 0 5px 0
+}
+
+input:not([type="checkbox"]):not([type="radio"]).inverse,textarea.inverse {
+    background-color: #333;
+    box-shadow: #383838 0 0 0 1px inset;
+    color: #ffffff
+}
+
+input:not([type="checkbox"]):not([type="radio"]).inverse::-webkit-input-placeholder,textarea.inverse::-webkit-input-placeholder {
+    color: #cccccc
+}
+
+input:not([type="checkbox"]):not([type="radio"]).inverse:-moz-placeholder,textarea.inverse:-moz-placeholder {
+    color: #cccccc
+}
+
+input:not([type="checkbox"]):not([type="radio"]).inverse::-moz-placeholder,textarea.inverse::-moz-placeholder {
+    color: #cccccc
+}
+
+input:not([type="checkbox"]):not([type="radio"]).inverse:-ms-input-placeholder,textarea.inverse:-ms-input-placeholder {
+    color: #cccccc
 }

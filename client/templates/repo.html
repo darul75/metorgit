@@ -1,0 +1,33 @@
+<template name="repository">
+  <div class="github">
+    <header>
+      <div class="center-wrapper">
+        <div class="left">
+          <h1>{{repo.name}}</h1>
+          <div class="page-title"></div>
+          <a href="{{repo.html_url}}" target="_blank">{{repo.html_url}}</a>
+          <p class="presentation">{{repo.description}}</p>
+          <div class="metrics">
+            <div class="metric white"><i class="fa fa-star"></i> {{repo.watchers_count}}</div>
+            <div class="metric white"><i class="fa fa-code-fork"></i> {{repo.forks}}</div>
+            <div class="metric white"><i class="fa fa-code-fork"></i> {{repo.forks_count}}</div>
+            <div class="metric white"><i class="fa fa-bug"></i> {{repo.open_issues_count}}</div>                        
+          </div>
+          {{> languages}}
+        </div>
+      </div>  
+    </header>
+    <section id='repository'> 
+      <div class='readme'>     
+        {{#markdown}}{{repo.readme}}{{/markdown}}
+      </div>  
+    </section>
+  </div>  
+</template>
+
+<template name="languages">
+  <div class="languages">    
+      <a class="btn-language">{{repo.languages}}</a>    
+  </div>
+</template>
+

@@ -1,12 +1,12 @@
 <template name="nav">
-  <nav class="{{#if black}}black{{/if}}">
-    <div class="nav-group">
-      {{#if back}}
-        <a class="nav-item js-back" href="#"><span class="icon-arrow-left-alt"></span></a>
-      {{else}}
-        <a class="nav-item js-menu" href="#"><span class="icon-menu"></span></a>
-      {{/if}}
+  <nav class="menu">
+    <div class="vertical">                
+      <a class="nav-item js-menu" href="/"><span class="">Home</span></a>
+      <a class="nav-item js-menu" href="/githuber"><span class="">Profile</span></a>      
+      {{> loginButtons}}
     </div>
+
+    <!-- <a class="logo" href="/">Github book</a> -->
 
     <div class="title-page">
       {{title}}
